@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { NegarComponent } from './folder/negar/negar.component';
 
 @Component({
   selector: 'app-root',
@@ -41,6 +42,12 @@ export class AppComponent implements OnInit {
       title: 'Spam',
       url: '/folder/Spam',
       icon: 'warning',
+    },
+    {
+      title: 'Negare',
+      url: '/folder/negar',
+      icon: 'image',
+      component: NegarComponent,
     },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
