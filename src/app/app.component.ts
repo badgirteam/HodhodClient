@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { NegarComponent } from './folder/negar/negar.component';
+import { NegarComponent } from './folder/Add/negar.component';
 
 @Component({
   selector: 'app-root',
@@ -14,43 +14,42 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'Inbox',
-      url: '/folder/Inbox',
-      icon: 'mail',
+      title: 'داشبورد',
+      url: '/folder/Dashboard',
+      icon: 'home',
     },
     {
-      title: 'Outbox',
-      url: '/folder/Outbox',
-      icon: 'paper-plane',
+      title: 'اینستاگرام',
+      url: '/folder/Instagram',
+      icon: 'logo-instagram',
     },
     {
-      title: 'Favorites',
-      url: '/folder/Favorites',
-      icon: 'heart',
+      title: 'توئیتر',
+      url: '/folder/Twitter',
+      icon: 'logo-twitter',
     },
     {
-      title: 'Archived',
-      url: '/folder/Archived',
-      icon: 'archive',
+      title: 'تلگرام',
+      url: '/folder/Telegram',
+      icon: 'navigate-circle-outline',
     },
     {
-      title: 'Trash',
-      url: '/folder/Trash',
-      icon: 'trash',
+      title: 'یوتیوب',
+      url: '/folder/Youtube',
+      icon: 'logo-youtube',
     },
     {
-      title: 'Spam',
-      url: '/folder/Spam',
-      icon: 'warning',
+      title: 'آپارات',
+      url: '/folder/Aparat',
+      icon: 'videocam-outline',
     },
     {
-      title: 'Negare',
-      url: '/folder/negar',
-      icon: 'image',
-      component: NegarComponent,
+      title: 'افزودن شبکه ی اجتماعی جدید',
+      url: '/folder/Add',
+      icon: 'add-circle-outline',
     },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  public labels = ['حساب کاربری', 'تنظیمات برنامه', 'تماس با ما', 'درباره'];
 
   constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar) {
     this.initializeApp();
