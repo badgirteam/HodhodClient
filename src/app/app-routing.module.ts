@@ -41,6 +41,13 @@ const routes: Routes = [
       ),
     canLoad: [CheckTutorial],
   },
+  {
+    path: 'tweetnegar',
+    loadChildren: () =>
+      import('./modules/tweetnegar/tweetnegar.module').then(
+        (m) => m.TweetnegarPageModule
+      ),
+  },
 ];
 
 @NgModule({
