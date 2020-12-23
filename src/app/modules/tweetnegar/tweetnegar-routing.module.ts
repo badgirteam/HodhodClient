@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TweetnegarPage } from './tweetnegar.page';
+import { TweetnegarPage } from './tweetnegar.component';
 
 const routes: Routes = [
   {

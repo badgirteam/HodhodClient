@@ -1,7 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js"></script>
-
 <ion-header>
   <ion-toolbar>
     <ion-title>تبدیل توئیت به تصویر</ion-title>
@@ -19,8 +15,8 @@
     </ion-button>
   </ion-item>
 
-  <ion-item>
-    <div id="div">
+  <ion-item style="padding: 5% 25%">
+    <div id="tweet">
       <img
         src="../../../assets/img/img.jpg"
         width="75px"
@@ -31,7 +27,7 @@
       <!-- <img src="img.jpg" width="245px" class="tweetpicture"> -->
 
       <div class="tweetcontent">
-        <p dir="rtl" class="p">
+        <p dir="rtl" class="tweet-text">
           گروه دانش بنیان در سال ٨۵، با تکیه بر بیش از هشت سال سابقه مؤثر مؤسسین
           خود در زمینه IT، فعالیت رسمی خود را آغاز کرد. گروه بیان با بهره گیری
           از تخصص و تجربه پرسنل خود که اندوخته های گرانقدری را از همکاری در
@@ -43,17 +39,12 @@
     </div>
   </ion-item>
 
-  <ion-button id="button" expand="block" fill="clear" shape="round">
+  <ion-button
+    (click)="getTweetPicture()"
+    expand="block"
+    fill="clear"
+    shape="round"
+  >
     دانلود خروجی
   </ion-button>
-
-  <script>
-    $(document).ready(function () {
-      $('#button').click(function () {
-        domtoimage.toBlob(document.getElementById('div')).then(function (blob) {
-          window.saveAs(blob, 'o.png');
-        });
-      });
-    });
-  </script>
 </ion-content>

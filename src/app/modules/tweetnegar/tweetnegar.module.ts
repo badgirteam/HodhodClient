@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TweetnegarPageRoutingModule } from './tweetnegar-routing.module';
 
-import { TweetnegarPage } from './tweetnegar.page';
+import { TweetnegarPage } from './tweetnegar.component';
 
 @NgModule({
   imports: [
