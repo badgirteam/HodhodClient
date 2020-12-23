@@ -20,22 +20,22 @@ import { UserData } from './data/service/user-data';
 export class AppComponent implements OnInit {
   appPages = [
     {
-      title: 'Schedule',
+      title: 'داشبورد',
       url: '/app/tabs/schedule',
       icon: 'calendar',
     },
     {
-      title: 'Speakers',
+      title: 'شبکه های تحت مدیریت',
       url: '/app/tabs/speakers',
       icon: 'people',
     },
     {
-      title: 'Map',
+      title: 'اضافه کردن شبکه اجتماعی',
       url: '/app/tabs/map',
       icon: 'map',
     },
     {
-      title: 'About',
+      title: 'درباره ما',
       url: '/app/tabs/about',
       icon: 'information-circle',
     },
