@@ -1,20 +1,50 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { CheckTutorial } from './core/service/check-tutorial.service';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Inbox',
+    redirectTo: '/tutorial',
     pathMatch: 'full',
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then((m) => m.FolderPageModule),
+    path: 'account',
+    loadChildren: () =>
+      import('./modules/account/account.module').then((m) => m.AccountModule),
+  },
+  {
+    path: 'support',
+    loadChildren: () =>
+      import('./modules/support/support.module').then((m) => m.SupportModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./modules/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'signup',
+    loadChildren: () =>
+      import('./modules/signup/signup.module').then((m) => m.SignUpModule),
+  },
+  {
+    path: 'app',
+    loadChildren: () =>
+      import('./modules/tabs-page/tabs-page.module').then((m) => m.TabsModule),
+  },
+  {
+    path: 'tutorial',
+    loadChildren: () =>
+      import('./modules/tutorial/tutorial.module').then(
+        (m) => m.TutorialModule
+      ),
+    canLoad: [CheckTutorial],
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

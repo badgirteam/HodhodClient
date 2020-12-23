@@ -1,59 +1,85 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { SwUpdate } from '@angular/service-worker';
 
-import { Platform } from '@ionic/angular';
+import { MenuController, Platform, ToastController } from '@ionic/angular';
+
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { NegarComponent } from './folder/negar/negar.component';
+
+import { Storage } from '@ionic/storage';
+
+import { UserData } from './data/service/user-data';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
-  public selectedIndex = 0;
-  public appPages = [
+  appPages = [
     {
-      title: 'Inbox',
-      url: '/folder/Inbox',
-      icon: 'mail',
+      title: 'Schedule',
+      url: '/app/tabs/schedule',
+      icon: 'calendar',
     },
     {
-      title: 'Outbox',
-      url: '/folder/Outbox',
-      icon: 'paper-plane',
+      title: 'Speakers',
+      url: '/app/tabs/speakers',
+      icon: 'people',
     },
     {
-      title: 'Favorites',
-      url: '/folder/Favorites',
-      icon: 'heart',
+      title: 'Map',
+      url: '/app/tabs/map',
+      icon: 'map',
     },
     {
-      title: 'Archived',
-      url: '/folder/Archived',
-      icon: 'archive',
-    },
-    {
-      title: 'Trash',
-      url: '/folder/Trash',
-      icon: 'trash',
-    },
-    {
-      title: 'Spam',
-      url: '/folder/Spam',
-      icon: 'warning',
-    },
-    {
-      title: 'Negare',
-      url: '/folder/negar',
-      icon: 'image',
-      component: NegarComponent,
+      title: 'About',
+      url: '/app/tabs/about',
+      icon: 'information-circle',
     },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  loggedIn = false;
+  dark = false;
 
-  constructor(private platform: Platform, private splashScreen: SplashScreen, private statusBar: StatusBar) {
+  constructor(
+    private menu: MenuController,
+    private platform: Platform,
+    private router: Router,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    private storage: Storage,
+    private userData: UserData,
+    private swUpdate: SwUpdate,
+    private toastCtrl: ToastController
+  ) {
     this.initializeApp();
+  }
+
+  async ngOnInit() {
+    this.checkLoginStatus();
+    this.listenForLoginEvents();
+
+    this.swUpdate.available.subscribe(async (res) => {
+      const toast = await this.toastCtrl.create({
+        message: 'Update available!',
+        position: 'bottom',
+        buttons: [
+          {
+            role: 'cancel',
+            text: 'Reload',
+          },
+        ],
+      });
+
+      await toast.present();
+
+      toast
+        .onDidDismiss()
+        .then(() => this.swUpdate.activateUpdate())
+        .then(() => window.location.reload());
+    });
   }
 
   initializeApp() {
@@ -63,10 +89,41 @@ export class AppComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    const path = window.location.pathname.split('folder/')[1];
-    if (path !== undefined) {
-      this.selectedIndex = this.appPages.findIndex((page) => page.title.toLowerCase() === path.toLowerCase());
-    }
+  checkLoginStatus() {
+    return this.userData
+      .isLoggedIn()
+      .then((loggedIn) => this.updateLoggedInStatus(loggedIn));
+  }
+
+  updateLoggedInStatus(loggedIn: boolean) {
+    setTimeout(() => {
+      this.loggedIn = loggedIn;
+    }, 300);
+  }
+
+  listenForLoginEvents() {
+    window.addEventListener('user:login', () => {
+      this.updateLoggedInStatus(true);
+    });
+
+    window.addEventListener('user:signup', () => {
+      this.updateLoggedInStatus(true);
+    });
+
+    window.addEventListener('user:logout', () => {
+      this.updateLoggedInStatus(false);
+    });
+  }
+
+  logout() {
+    this.userData
+      .logout()
+      .then(() => this.router.navigateByUrl('/app/tabs/schedule'));
+  }
+
+  openTutorial() {
+    this.menu.enable(false);
+    this.storage.set('ion_did_tutorial', false);
+    this.router.navigateByUrl('/tutorial');
   }
 }
