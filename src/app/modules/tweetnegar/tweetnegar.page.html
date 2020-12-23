@@ -1,11 +1,25 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js"></script>
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>tweetnegar</ion-title>
+    <ion-title>تبدیل توئیت به تصویر</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div id="main">
+  <ion-item>
+    <ion-label>لینک توئیت مد نظر خود را وارد کنید:</ion-label>
+  </ion-item>
+  <ion-input type="text" placeholder="لینک توئیت"></ion-input>
+  <ion-item>
+    <ion-button expand="block" fill="clear" shape="round">
+      پیش نمایش توئیت
+    </ion-button>
+  </ion-item>
+
+  <ion-item>
     <div id="div">
       <img
         src="../../../assets/img/img.jpg"
@@ -27,12 +41,11 @@
         </p>
       </div>
     </div>
-    <button id="button">دریافت خروجی تصویر</button>
-  </div>
+  </ion-item>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js"></script>
+  <ion-button id="button" expand="block" fill="clear" shape="round">
+    دانلود خروجی
+  </ion-button>
 
   <script>
     $(document).ready(function () {
