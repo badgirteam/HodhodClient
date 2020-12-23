@@ -4,4 +4,43 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <div id="main">
+    <div id="div">
+      <img
+        src="../../../assets/img/img.jpg"
+        width="75px"
+        height="75px"
+        class="profile"
+      />
+      <div class="username">@hodhodTeam - تیم هدهد</div>
+      <!-- <img src="img.jpg" width="245px" class="tweetpicture"> -->
+
+      <div class="tweetcontent">
+        <p dir="rtl" class="p">
+          گروه دانش بنیان در سال ٨۵، با تکیه بر بیش از هشت سال سابقه مؤثر مؤسسین
+          خود در زمینه IT، فعالیت رسمی خود را آغاز کرد. گروه بیان با بهره گیری
+          از تخصص و تجربه پرسنل خود که اندوخته های گرانقدری را از همکاری در
+          پروژه های جهانی IT و حضور در شرکت های معتبر بین المللی به ارمغان آورده
+          بودند، سعی کرد تا فضای علمی- تحقیقاتی متفاوتی را در صنعت فناوری
+          اطلاعات ایران رقم بزند.
+        </p>
+      </div>
+    </div>
+    <button id="button">دریافت خروجی تصویر</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#button').click(function () {
+        domtoimage.toBlob(document.getElementById('div')).then(function (blob) {
+          window.saveAs(blob, 'o.png');
+        });
+      });
+    });
+  </script>
+</ion-content>
