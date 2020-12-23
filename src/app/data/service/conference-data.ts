@@ -135,29 +135,21 @@ export class ConferenceData {
 
   getSpeakers() {
     return this.load().pipe(
-      map((data: any) => {
-        return data.speakers.sort((a: any, b: any) => {
+      map((data: any) =>
+        data.speakers.sort((a: any, b: any) => {
           const aName = a.name.split(' ').pop();
           const bName = b.name.split(' ').pop();
           return aName.localeCompare(bName);
-        });
-      })
+        })
+      )
     );
   }
 
   getTracks() {
-    return this.load().pipe(
-      map((data: any) => {
-        return data.tracks.sort();
-      })
-    );
+    return this.load().pipe(map((data: any) => data.tracks.sort()));
   }
 
   getMap() {
-    return this.load().pipe(
-      map((data: any) => {
-        return data.map;
-      })
-    );
+    return this.load().pipe(map((data: any) => data.map));
   }
 }

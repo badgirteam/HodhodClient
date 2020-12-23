@@ -11,9 +11,9 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./tutorial.scss'],
 })
 export class TutorialPage {
-  showSkip = true;
-
   @ViewChild('slides', { static: true }) slides: IonSlides;
+
+  showSkip = true;
 
   constructor(
     public menu: MenuController,

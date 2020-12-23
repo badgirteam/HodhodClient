@@ -86,7 +86,7 @@ export class MapPage implements AfterViewInit {
   }
 }
 
-function getGoogleMaps(apiKey: string): Promise<any> {
+const getGoogleMaps = (apiKey: string): Promise<any> => {
   const win = window as any;
   const googleModule = win.google;
   if (googleModule && googleModule.maps) {
@@ -108,4 +108,4 @@ function getGoogleMaps(apiKey: string): Promise<any> {
       }
     };
   });
-}
+};

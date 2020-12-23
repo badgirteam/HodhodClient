@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
@@ -43,9 +44,7 @@ export class UserData {
   logout(): Promise<any> {
     return this.storage
       .remove(this.HAS_LOGGED_IN)
-      .then(() => {
-        return this.storage.remove('username');
-      })
+      .then(() => this.storage.remove('username'))
       .then(() => {
         window.dispatchEvent(new CustomEvent('user:logout'));
       });
@@ -56,20 +55,14 @@ export class UserData {
   }
 
   getUsername(): Promise<string> {
-    return this.storage.get('username').then((value) => {
-      return value;
-    });
+    return this.storage.get('username').then((value) => value);
   }
 
   isLoggedIn(): Promise<boolean> {
-    return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
-      return value === true;
-    });
+    return this.storage.get(this.HAS_LOGGED_IN).then((value) => value === true);
   }
 
   checkHasSeenTutorial(): Promise<string> {
-    return this.storage.get(this.HAS_SEEN_TUTORIAL).then((value) => {
-      return value;
-    });
+    return this.storage.get(this.HAS_SEEN_TUTORIAL).then((value) => value);
   }
 }

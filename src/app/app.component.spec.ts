@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { UserData } from './data/service/user-data';
 
 describe('AppComponent', () => {
-  // tslint:disable-next-line: one-variable-per-declaration
+  // eslint-disable-next-line one-var
   let menuSpy: any,
     routerSpy: any,
     userDataSpy: any,

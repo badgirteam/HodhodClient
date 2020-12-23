@@ -90,9 +90,9 @@ export class AppComponent implements OnInit {
   }
 
   checkLoginStatus() {
-    return this.userData.isLoggedIn().then((loggedIn) => {
-      return this.updateLoggedInStatus(loggedIn);
-    });
+    return this.userData
+      .isLoggedIn()
+      .then((loggedIn) => this.updateLoggedInStatus(loggedIn));
   }
 
   updateLoggedInStatus(loggedIn: boolean) {
@@ -116,9 +116,9 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    this.userData.logout().then(() => {
-      return this.router.navigateByUrl('/app/tabs/schedule');
-    });
+    this.userData
+      .logout()
+      .then(() => this.router.navigateByUrl('/app/tabs/schedule'));
   }
 
   openTutorial() {
