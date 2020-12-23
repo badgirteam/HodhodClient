@@ -35,6 +35,11 @@ export class AppComponent implements OnInit {
       icon: 'map',
     },
     {
+      title: 'پشتیبانی',
+      url: '/support',
+      icon: 'help',
+    },
+    {
       title: 'درباره ما',
       url: '/app/tabs/about',
       icon: 'information-circle',
