@@ -86,7 +86,10 @@ export class SchedulePage implements OnInit {
     }
   }
 
-  async addFavorite(slidingItem: HTMLIonItemSlidingElement, sessionData: any) {
+  async addFavorite(
+    slidingItem: HTMLIonItemSlidingElement,
+    sessionData: any
+  ): Promise<any> {
     if (this.user.hasFavorite(sessionData.name)) {
       // Prompt to remove favorite
       this.removeFavorite(slidingItem, sessionData, 'Favorite already added');
