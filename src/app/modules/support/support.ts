@@ -17,15 +17,15 @@ export class SupportPage {
     public toastCtrl: ToastController
   ) {}
 
-  async ionViewDidEnter() {
+  async ionViewDidEnter(): Promise<void> {
     const toast = await this.toastCtrl.create({
-      message: 'This does not actually send a support request.',
+      message: 'در حال حاضر پشتیبانی غیرفعال میباشد!',
       duration: 3000,
     });
     await toast.present();
   }
 
-  async submit(form: NgForm) {
+  async submit(form: NgForm): Promise<void> {
     this.submitted = true;
 
     if (form.valid) {
@@ -33,7 +33,7 @@ export class SupportPage {
       this.submitted = false;
 
       const toast = await this.toastCtrl.create({
-        message: 'Your support request has been sent.',
+        message: 'درخواست شما به تیم پشتیبانی ارسال شد!',
         duration: 3000,
       });
       await toast.present();
