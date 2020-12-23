@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Support</ion-title>
+    <ion-title>پشتیبانی</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
     <ion-list lines="none">
       <ion-item>
         <ion-label position="stacked" color="primary"
-          >Enter your support message below</ion-label
+          >جهت دریافت پشتیبانی، پیغام خود را توضیح دهید:</ion-label
         >
         <ion-textarea
           [(ngModel)]="supportMessage"
@@ -33,12 +33,12 @@
         [hidden]="supportQuestion.valid || submitted === false"
         class="ion-padding-start"
       >
-        Support message is required
+        چیزی وارد نکردید!
       </p>
     </ion-text>
 
     <div class="ion-padding">
-      <ion-button expand="block" type="submit">Submit</ion-button>
+      <ion-button expand="block" type="submit">ارسال</ion-button>
     </div>
   </form>
 </ion-content>

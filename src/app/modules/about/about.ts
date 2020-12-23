@@ -14,7 +14,7 @@ export class AboutPage {
   conferenceDate = '2047-05-17';
 
   selectOptions = {
-    header: 'Select a Location',
+    header: 'انتخاب توسعه دهنده',
   };
 
   constructor(public popoverCtrl: PopoverController) {}

@@ -6,6 +6,14 @@ ion-fab-button {
   --color: var(--ion-color-primary, #3880ff);
 }
 
+ion-col {
+  border-radius: 10px;
+}
+
+ion-col:hover {
+  filter: brightness(120%);
+}
+
 /*
  * Material Design uses the ripple for activated
  * so only style the iOS activated background
