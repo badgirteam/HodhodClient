@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicStorageModule } from '@ionic/storage';
+import { AuthModule } from '@modules/auth/auth.module';
+import { CoreModule } from '@app/core.module';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +30,11 @@ import { IonicStorageModule } from '@ionic/storage';
       enabled: environment.production,
     }),
     AppRoutingModule,
+    // 3rd party
+    AuthModule,
+    // core & shared
+    CoreModule,
+    SharedModule,
   ],
   providers: [
     StatusBar,

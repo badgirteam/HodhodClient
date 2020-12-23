@@ -9,7 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { Storage } from '@ionic/storage';
 
-import { UserData } from './providers/user-data';
+import { UserData } from './data/service/user-data';
 
 @Component({
   selector: 'app-root',
