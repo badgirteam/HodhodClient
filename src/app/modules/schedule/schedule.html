@@ -20,7 +20,7 @@
       [(ngModel)]="queryText"
       (ionChange)="updateSchedule()"
       (ionCancel)="showSearchbar = false"
-      placeholder="Search"
+      placeholder="جستجو"
     ></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button *ngIf="!ios && !showSearchbar" (click)="showSearchbar = true">
