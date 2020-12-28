@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class TestApiService {
-  apiUrl: string = '';
+  apiUrl = '';
 
   constructor(private http: HttpClient) {}
 
