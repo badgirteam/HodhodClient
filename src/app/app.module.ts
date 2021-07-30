@@ -16,6 +16,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AuthModule } from '@modules/auth/auth.module';
 import { CoreModule } from '@app/core.module';
 import { SharedModule } from '@shared/shared.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +36,7 @@ import { SharedModule } from '@shared/shared.module';
     // core & shared
     CoreModule,
     SharedModule,
+    FontAwesomeModule,
   ],
   providers: [
     StatusBar,

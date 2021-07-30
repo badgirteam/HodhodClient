@@ -33,7 +33,9 @@ export class MapPage implements AfterViewInit {
       style = darkStyle;
     }
 
-    const googleMaps = await getGoogleMaps('YOUR_API_KEY_HERE');
+    const googleMaps = await getGoogleMaps(
+      'AIzaSyDkrXbwBwcZMGQYCGPUGrPR0kNhhhKCkyQ'
+    );
 
     let map;
 
