@@ -16,7 +16,11 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AuthModule } from '@modules/auth/auth.module';
 import { CoreModule } from '@app/core.module';
 import { SharedModule } from '@shared/shared.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
+import { faCoffee, fas } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,4 +49,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas);
+    library.addIcons(faCoffee);
+  }
+}
