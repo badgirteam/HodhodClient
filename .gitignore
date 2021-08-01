@@ -31,3 +31,5 @@ npm-debug.log*
 /www
 .angulardoc.json
 .angulardoc.json
+
+/src/config.json
