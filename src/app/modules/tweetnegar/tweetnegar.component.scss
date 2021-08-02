@@ -6,9 +6,8 @@
   display: inline-block;
 }
 
-.username {
-  margin-top: 10px;
-  font-weight: bold;
+.user_username {
+  direction: ltr;
 }
 
 .tweetpicture {
@@ -16,8 +15,6 @@
 }
 
 .tweetcontent {
-  margin-top: 10px;
-  font-size: 0.8em;
   text-align: justify;
   text-justify: inter-word;
 }
