@@ -13,6 +13,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
+          "proxyConfig": "src/proxy.conf.js",
           "options": {
             "outputPath": "www",
             "index": "src/index.html",
@@ -74,11 +75,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "app:build",
+            "proxyConfig": "src/proxy.conf.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "app:build:production"
+              "browserTarget": "app:build:production",
+              "proxyConfig": "src/proxy.conf.prod.js"
             },
             "ci": {
               "progress": false
