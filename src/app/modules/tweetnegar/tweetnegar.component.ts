@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
@@ -7,7 +8,7 @@ import { saveAs } from 'file-saver';
 interface UserDetails {
   username: string;
   id: string;
-  profileImageUrl: string;
+  profile_image_url: string;
   name: string;
 }
 @Component({
@@ -26,7 +27,7 @@ export class TweetnegarPage implements OnInit {
   userDetails: UserDetails = {
     username: 'badgirTeam',
     id: '1234',
-    profileImageUrl: '../../../assets/img/img.jpg',
+    profile_image_url: '../../../assets/img/img.jpg',
     name: 'تیم بادگیر',
   };
   constructor(private http: HttpClient, private toastCtrl: ToastController) {}
@@ -109,8 +110,8 @@ export class TweetnegarPage implements OnInit {
    *
    * @param userDetails
    */
-  setUserDetail(userDetails: UserDetails): void {
-    this.userDetails = userDetails;
+  setUserDetail(response: UserDetails): void {
+    this.userDetails = response;
   }
 
   /**
