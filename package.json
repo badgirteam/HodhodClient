@@ -12,7 +12,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "tsc --noEmit && eslint . --ext js,ts,json --fix",
+    "lint": "tsc --noEmit && eslint . --ext ts,json --fix",
     "e2e": "ng e2e",
     "format:check": "prettier --config \".prettierrc\" --list-different \"src\"",
     "format:fix": "pretty-quick --staged",

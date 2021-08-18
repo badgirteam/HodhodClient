@@ -7,7 +7,7 @@ import { saveAs } from 'file-saver';
 interface UserDetails {
   username: string;
   id: string;
-  profile_image_url: string;
+  profileImageUrl: string;
   name: string;
 }
 @Component({
@@ -16,7 +16,7 @@ interface UserDetails {
   styleUrls: ['tweetnegar.component.scss'],
 })
 export class TweetnegarPage implements OnInit {
-  tweetText: String = `
+  tweetText = `
   گروه دانش بنیان در سال ٨۵، با تکیه بر بیش از هشت سال سابقه مؤثر مؤسسین
   خود در زمینه IT، فعالیت رسمی خود را آغاز کرد. گروه بیان با بهره گیری
   از تخصص و تجربه پرسنل خود که اندوخته های گرانقدری را از همکاری در
@@ -26,7 +26,7 @@ export class TweetnegarPage implements OnInit {
   userDetails: UserDetails = {
     username: 'badgirTeam',
     id: '1234',
-    profile_image_url: '../../../assets/img/img.jpg',
+    profileImageUrl: '../../../assets/img/img.jpg',
     name: 'تیم بادگیر',
   };
   constructor(private http: HttpClient, private toastCtrl: ToastController) {}
@@ -66,7 +66,7 @@ export class TweetnegarPage implements OnInit {
               this.setUserDetail(data.includes.users[0]);
               return text;
             } else {
-              throw 'tweet not found';
+              throw new Error('tweet not found');
             }
           },
           async (error) => {
