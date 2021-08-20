@@ -8,7 +8,7 @@
       [(ngModel)]="segment"
       (ionChange)="updateSchedule()"
     >
-      <ion-segment-button value="all"> همه ی امکانات </ion-segment-button>
+      <ion-segment-button value="all"> همه امکانات </ion-segment-button>
       <ion-segment-button value="favorites">
         بیشتر استفاده شده
       </ion-segment-button>
@@ -20,7 +20,7 @@
       [(ngModel)]="queryText"
       (ionChange)="updateSchedule()"
       (ionCancel)="showSearchbar = false"
-      placeholder="Search"
+      placeholder="جستجو"
     ></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button *ngIf="!ios && !showSearchbar" (click)="showSearchbar = true">
@@ -77,15 +77,17 @@
   <ion-grid>
     <ion-row>
       <ion-col
+        routerLink="/tweetnegar"
         style="
           text-align: center;
           background-color: rgb(43, 116, 226);
           margin: 5px;
+          cursor: pointer;
         "
       >
         <ion-icon name="logo-twitter"></ion-icon>
         <br />
-        <a style="color: azure" href="/tweetnegar">توئیت نگار</a>
+        <a style="color: var(--ion-text-color)">توئیت نگار</a>
       </ion-col>
       <ion-col
         style="

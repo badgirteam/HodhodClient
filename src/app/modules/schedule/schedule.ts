@@ -8,6 +8,7 @@ import {
   ModalController,
   ToastController,
   Config,
+  IonFab,
 } from '@ionic/angular';
 
 import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
@@ -16,7 +17,7 @@ import { UserData } from '../../data/service/user-data';
 
 @Component({
   selector: 'app-page-schedule',
-  templateUrl: 'schedule.html',
+  templateUrl: './schedule.html',
   styleUrls: ['./schedule.scss'],
 })
 export class SchedulePage implements OnInit {
@@ -45,13 +46,13 @@ export class SchedulePage implements OnInit {
     public config: Config
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.updateSchedule();
 
     this.ios = this.config.get('mode') === 'ios';
   }
 
-  updateSchedule() {
+  updateSchedule(): void {
     // Close any open sliding items when the schedule updates
     if (this.scheduleList) {
       this.scheduleList.closeSlidingItems();
@@ -70,7 +71,7 @@ export class SchedulePage implements OnInit {
       });
   }
 
-  async presentFilter() {
+  async presentFilter(): Promise<any> {
     const modal = await this.modalCtrl.create({
       component: ScheduleFilterPage,
       swipeToClose: true,
@@ -121,7 +122,7 @@ export class SchedulePage implements OnInit {
     slidingItem: HTMLIonItemSlidingElement,
     sessionData: any,
     title: string
-  ) {
+  ): Promise<any> {
     const alert = await this.alertCtrl.create({
       header: title,
       message: 'Would you like to remove this session from your favorites?',
@@ -151,7 +152,10 @@ export class SchedulePage implements OnInit {
     await alert.present();
   }
 
-  async openSocial(network: string, fab: HTMLIonFabElement) {
+  async openSocial(
+    network: string,
+    fab: HTMLIonFabElement | IonFab
+  ): Promise<any> {
     const loading = await this.loadingCtrl.create({
       message: `Posting to ${network}`,
       duration: Math.random() * 1000 + 500,

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>تبدیل توئیت به تصویر</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>لینک توئیت مد نظر خود را وارد کنید:</ion-label>
+  </ion-item>
+  <ion-input
+    type="text"
+    placeholder="لینک توئیت"
+    inputmode="url"
+    #tweetLink
+  ></ion-input>
+  <ion-item>
+    <ion-button
+      expand="block"
+      fill="clear"
+      shape="round"
+      (click)="getTweetText(tweetLink.value.toString())"
+    >
+      پیش نمایش توئیت
+    </ion-button>
+  </ion-item>
+
+  <ion-item style="padding: 5% 25%">
+    <ion-grid id="tweet" style="text-align: center; padding: 3%">
+      <ion-row>
+        <ion-col size="auto">
+          <img
+            [src]="userDetails.profile_image_url"
+            width="75px"
+            height="75px"
+            class="profile"
+          />
+        </ion-col>
+        <ion-col size="auto">
+          <p class="user_name">{{ userDetails.name }}</p>
+          <p class="user_username">@{{ userDetails.username }}</p>
+          <!-- <img src="img.jpg" width="245px" class="tweetpicture"> -->
+        </ion-col>
+        <ion-row class="tweetcontent">
+          <p dir="rtl" class="tweet-text">{{ tweetText }}</p>
+        </ion-row>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-button
+    (click)="getTweetPicture()"
+    expand="block"
+    fill="clear"
+    shape="round"
+  >
+    دانلود خروجی
+  </ion-button>
+</ion-content>

@@ -30,9 +30,14 @@ export class AppComponent implements OnInit {
       icon: 'people',
     },
     {
-      title: 'اضافه کردن شبکه اجتماعی',
+      title: 'افزودن شبکه اجتماعی',
       url: '/app/tabs/map',
       icon: 'map',
+    },
+    {
+      title: 'پشتیبانی',
+      url: '/support',
+      icon: 'help',
     },
     {
       title: 'درباره ما',
