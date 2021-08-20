@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
@@ -16,7 +17,7 @@ interface UserDetails {
   styleUrls: ['tweetnegar.component.scss'],
 })
 export class TweetnegarPage implements OnInit {
-  tweetText: String = `
+  tweetText = `
   گروه دانش بنیان در سال ٨۵، با تکیه بر بیش از هشت سال سابقه مؤثر مؤسسین
   خود در زمینه IT، فعالیت رسمی خود را آغاز کرد. گروه بیان با بهره گیری
   از تخصص و تجربه پرسنل خود که اندوخته های گرانقدری را از همکاری در
@@ -66,7 +67,7 @@ export class TweetnegarPage implements OnInit {
               this.setUserDetail(data.includes.users[0]);
               return text;
             } else {
-              throw 'tweet not found';
+              throw new Error('tweet not found');
             }
           },
           async (error) => {
@@ -109,8 +110,8 @@ export class TweetnegarPage implements OnInit {
    *
    * @param userDetails
    */
-  setUserDetail(userDetails: UserDetails): void {
-    this.userDetails = userDetails;
+  setUserDetail(response: UserDetails): void {
+    this.userDetails = response;
   }
 
   /**
