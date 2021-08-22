@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "client",
+  "appId": "app.web.hodhod",
+  "appName": "Hodhod",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "public",
